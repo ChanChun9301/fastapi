@@ -1,0 +1,14 @@
+<h1>{{ course.title }}</h1>
+<p>{{ course.description }}</p>
+
+<h2>Видео:</h2>
+<ul>
+    {% for video in course.videos %}
+    <li>
+        <h3>{{ video.title }}</h3>
+        <video width="400" controls>
+            <source src="http://localhost:8000/{{ video.url }}" type="video/mp4">
+        </video>
+    </li>
+    {% endfor %}
+</ul>

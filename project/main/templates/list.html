@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Курсы</title>
+</head>
+<body>
+    <h1>Список курсов</h1>
+    <ul>
+        {% for course in courses %}
+            <li>
+                <h2>{{ course.title }}</h2>
+                <p>{{ course.description }}</p>
+                <ul>
+                    {% for video in course.videos %}
+                        <li>
+                            {{ video.title }} — {{ video.duration }} сек.
+                            <br>
+                            <video width="400" controls>
+                                {% comment %} <source src="http://localhost:8000/media/{{ video.file }}" type="video/mp4"> {% endcomment %}
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
